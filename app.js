@@ -13,8 +13,14 @@ app.use(morgan(morganOptions));
 app.use(helmet());
 app.use(cors());
 
-app.get(`/`, (_,res)=>{
-    res.send(`Hello World`);
-})
+const basePath = `/`;
+
+app.get(basePath, (_,res)=>{
+    res.send(`A GET request`);
+});
+
+app.post(basePath, (req, res) => {
+    res.send(`A POST request`);
+});
 
 module.exports = app;
